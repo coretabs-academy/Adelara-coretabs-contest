@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
     <meta name="theme-color" content="#FFE1C4">
 </head>
+
 <body>
     {% block header %}
     <div id="loader">
@@ -22,7 +24,7 @@
     <header class="header">
         <nav id="nav" class="flex">
             <div id="logo">
-                <a href="/">
+                <a href="{{ url_for('homepage') }}">
                     <img src="{{ url_for('static', filename='img/chef.png') }}" alt="">
                 </a>
             </div>
@@ -34,7 +36,7 @@
             </div>
             <div id="nav-menu" class="closed">
                 <ul>
-                {% if admin %}
+                    {% if admin %}
                     <a href="{{ url_for('list_orders') }}">List of orders</a>
                     <a href="{{ url_for('add_meal') }}">Add a new meal</a>
                     <div class="role">
@@ -44,7 +46,7 @@
                     <div class="role">
                         <a href="{{ url_for('admin_role') }}">I'm Admin</a>
                     </div>
-                {% endif %}
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -63,8 +65,9 @@
         <div id="coretabs">
             Ramadan contest by <span>Coretabs Academy</span>
         </div>
-    </footer>    
+    </footer>
     {% endblock %}
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
+
 </html>
